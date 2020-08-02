@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data ><!--class="AAAAAAA"-->
+        <import type="android.view.View" />
+        <import type="com.example.databind.Exts" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:clickable="true"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/features_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="binding features"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/features_txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#f8f8f8"
+            android:text='@{featureEdt.text.toString(),default="取 feature_edt 的值"}'
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/features_txt2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toast" />
+
+        <TextView
+            android:id="@+id/features_txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#f8f8f8"
+            android:textSize="12sp"
+            android:text='@{featureEdt.text.toString(),default="取 feature_edt 的值"}'
+            app:layout_constraintBottom_toBottomOf="@+id/features_txt1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/features_txt1"
+            app:layout_constraintTop_toTopOf="@+id/features_txt1" />
+        <!--android:textColor="@{featureEdt.text.hasCharX('e') ? @color/colorAccent : @color/colorPrimaryDark }"-->
+
+        <EditText
+            android:id="@+id/feature_edt"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/edt_bg"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:maxLength="16"
+            android:maxLines="1"
+            android:paddingLeft="8dp"
+            android:text="Name"
+            android:textAllCaps="false"
+            android:textColor='@{featureEdt.text.toString().length() > 8 ? @color/colorAccent : @color/colorPrimaryDark }'
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/features_title" />
+
+        <TextView
+            android:id="@+id/toast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="9sp"
+            android:textColor='@{featureEdt.text.toString().length() &lt; 1 ? @color/colorAccent : @color/colorPrimaryDark,default=@color/colorPrimary}'
+            android:text='@{featureEdt.text.toString().length() &lt; 1 ? "不能为空" :"1-16个字符",default = "1-16个字符"}'
+            app:layout_constraintStart_toStartOf="@+id/feature_edt"
+            app:layout_constraintTop_toBottomOf="@+id/feature_edt" />
+
+        <TextView
+            android:id="@+id/tvFormat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text='@{@string/format("李4",0x20,33.333333f),default=@string/format}'
+            app:layout_constraintStart_toStartOf="@+id/feature_edt"
+            app:layout_constraintTop_toBottomOf="@+id/features_txt1" />
+
+        <TextView
+            android:id="@+id/iformat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text='@{@string/int_format1(111),default=@string/int_format1}'
+            app:layout_constraintStart_toStartOf="@+id/feature_edt"
+            app:layout_constraintTop_toBottomOf="@+id/tvFormat" />
+
+        <TextView
+            android:id="@+id/iformat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text='@{@string/int_format2(111),default=@string/int_format2}'
+            app:layout_constraintBottom_toBottomOf="@+id/iformat1"
+            app:layout_constraintStart_toEndOf="@+id/iformat1"
+            app:layout_constraintTop_toTopOf="@+id/iformat1" />
+
+        <TextView
+            android:id="@+id/iformat3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='@{@string/int_format3(111),default=@string/int_format3}'
+            app:layout_constraintStart_toStartOf="@+id/feature_edt"
+            app:layout_constraintTop_toBottomOf="@+id/iformat2" />
+
+        <TextView
+            android:id="@+id/iformat4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='@{@string/int_format4(111),default=@string/int_format4}'
+            app:layout_constraintStart_toStartOf="@+id/iformat2"
+            app:layout_constraintTop_toBottomOf="@+id/iformat2" />
+
+        <TextView
+            android:id="@+id/fformat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text='@{@string/float_format1(11.777777f),default=@string/float_format1}'
+            app:layout_constraintStart_toStartOf="@+id/feature_edt"
+            app:layout_constraintTop_toBottomOf="@+id/iformat3" />
+
+        <TextView
+            android:id="@+id/fformat3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='@{@string/float_format3(11.777777f),default=@string/float_format3}'
+            app:layout_constraintStart_toStartOf="@+id/feature_edt"
+            app:layout_constraintTop_toBottomOf="@+id/fformat2" />
+
+        <TextView
+            android:id="@+id/fformat4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='@{@string/float_format4(11.777777f),default=@string/float_format4}'
+            app:layout_constraintStart_toStartOf="@+id/fformat2"
+            app:layout_constraintTop_toBottomOf="@+id/fformat3" />
+
+
+        <TextView
+            android:id="@+id/fformat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='@{@string/float_format2(11.777777f),default=@string/float_format2}'
+            app:layout_constraintStart_toStartOf="@+id/fformat1"
+            app:layout_constraintTop_toBottomOf="@+id/fformat1" />
+
+
+        <TextView
+            android:id="@+id/cformat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@{@string/char_format1('A'),default=@string/char_format1}"
+            app:layout_constraintStart_toStartOf="@+id/fformat2"
+            app:layout_constraintTop_toBottomOf="@+id/fformat4" />
+
+        <TextView
+            android:id="@+id/cformat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='@{@string/char_format2("world"),default=@string/char_format2}'
+            app:layout_constraintStart_toStartOf="@+id/fformat2"
+            app:layout_constraintTop_toBottomOf="@+id/cformat1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

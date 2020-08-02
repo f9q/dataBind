@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">DataBind</string>
+    <string name="data_name">name = %1$s </string>
+    <string name="format">format : name=%1$s,age=%2$1d,value=%3$32f </string>
+    <string name="a_name">类型转换的双向绑定 a.name = %1$s </string>
+    <string name="map_title">map&lt;String,ObservableField&lt;String> > : %1$2d <b>个元素</b> </string>
+    <string name="map_key_value">key = %1$s ,value = %2$s </string>
+
+    <string name="list_title">list&lt;String> : %1$2d 个元素</string>
+    <string name="list_index">list[%1$d] = %2$s </string>
+
+    <string name="int_format1">111 ->  \%%#-8X value = %1$#-8X </string>
+    <string name="int_format2">111 ->  \%%d value = %1$d </string>
+    <string name="int_format3">111 ->  \%%o value = %1$o </string>
+    <string name="int_format4">111 ->  \%%u 不支持 </string>
+
+    <string name="float_format1">11.777777f   ->    \%%3f value = %1$3f </string>
+    <string name="float_format2">11.777777f   ->    \%%f value = %1$f </string>
+    <string name="float_format3">11.777777f   ->    \%%#e value = %1$#E </string><!--#无效-->
+    <string name="float_format4">11.777777f   ->    \%%g value = %1$G </string>
+
+    <string name="char_format1">&#160; &#160; \'A\'   ->    \%%-5c value = %1$-5c </string>
+    <string name="char_format2">\"world\"   ->    \%%s value = %1$s </string>
+
+</resources>
